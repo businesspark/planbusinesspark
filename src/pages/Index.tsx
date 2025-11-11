@@ -58,7 +58,7 @@ const Index = () => {
             {/* Plan M Card - Slides from Right */}
             <div ref={planMCard.elementRef}>
               <ProjectCard
-                image={planMHero}
+                image="https://planmproject.com/images/Picture1-min.jpg"
                 title="Plan M Business Park"
                 description="Plan M is a state-of-the-art G+36 storeyed elevation situated at Turbhe, the business district of Navi Mumbai. This ultra modern project comprises a list of modern workspaces coupled with amenities that are unheard in the commercial real estate segment. "
                 link="/plan-m"
