@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import CTASection from "@/components/CTASection";
-import homeHero1 from "@/assets/home-hero-1.jpg";
-import planMHero from "@/assets/plan-m-hero.jpg";
-import planIHero from "@/assets/plan-i-hero.jpg";
+import homeHero1 from "@/assets/images/plan-m-hero-main.jpg"; // Using plan-m hero as home hero placeholder
+import planMHero from "@/assets/images/plan-m-hero-main.jpg";
+import planIHero from "@/assets/images/plan-i-hero-main.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Index = () => {
@@ -58,20 +58,20 @@ const Index = () => {
             {/* Plan M Card - Slides from Right */}
             <div ref={planMCard.elementRef}>
               <ProjectCard
-                image="https://planmproject.com/images/Picture1-min.jpg"
-                title="Plan M Business Park"
-                description="Plan M is a state-of-the-art G+36 storeyed elevation situated at Turbhe, the business district of Navi Mumbai. This ultra modern project comprises a list of modern workspaces coupled with amenities that are unheard in the commercial real estate segment. "
-                link="/plan-m"
-                colorScheme="yellow"
-                slideDirection="right"
-                isVisible={planMCard.isVisible}
+              image={planMHero}
+              title="Plan M Business Park"
+              description="Plan M is a state-of-the-art G+36 storeyed elevation situated at Turbhe, the business district of Navi Mumbai. This ultra modern project comprises a list of modern workspaces coupled with amenities that are unheard in the commercial real estate segment. "
+              link="/plan-m"
+              colorScheme="yellow"
+              slideDirection="right"
+              isVisible={planMCard.isVisible}
               />
             </div>
 
             {/* Plan I Card - Slides from Left */}
             <div ref={planICard.elementRef}>
               <ProjectCard
-                image="https://revaahomes.com/wp-content/uploads/2024/11/Tescon-Plan-I-Business-Park-Nerul-Banner-1-1.jpg"
+                image={planIHero}
                 title="Plan I Business Park"
                 description="A G+23 storey premium business park located minutes from the Sion–Panvel Highway, blending design, technology, and sustainability in Nerul, Navi Mumbai."
                 link="/plan-i"

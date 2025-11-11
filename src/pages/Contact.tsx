@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Phone, Zap, Users, TrendingUp } from "lucide-react";
-import homeHero1 from "@/assets/home-hero-1.jpg";
+import homeHero1 from "@/assets/images/plan-m-hero-main.jpg"; // Using plan-m hero as placeholder
 
 const Contact = () => {
   const headerSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });

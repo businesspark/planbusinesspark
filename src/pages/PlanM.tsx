@@ -6,11 +6,20 @@ import AmenityCard from "@/components/AmenityCard";
 import ContactForm from "@/components/ContactForm";
 import ImageGallery from "@/components/ImageGallery";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import planMHero from "@/assets/plan-m-hero.jpg";
-import amenityConcierge from "@/assets/amenity-concierge.jpg";
-import amenityValet from "@/assets/amenity-valet.jpg";
-import amenityCafeteria from "@/assets/amenity-cafeteria.jpg";
-import amenityGym from "@/assets/amenity-gym.jpg";
+import planMHero from "@/assets/images/plan-m-hero-main.jpg";
+import planMAbout from "@/assets/images/plan-m-about.jpg";
+// Using apartment images as placeholders for missing amenity images
+import amenityConcierge from "@/assets/images/apartment-1.jpg";
+import amenityValet from "@/assets/images/apartment-2.jpg";
+import amenityCafeteria from "@/assets/images/apartment-3.jpg";
+import amenityGym from "@/assets/images/apartment-4.jpg";
+import floorPlan1 from "@/assets/images/floor-plan-1.jpeg";
+import floorPlan2 from "@/assets/images/floor-plan-2.jpeg";
+import apartment1 from "@/assets/images/apartment-1.jpg";
+import apartment2 from "@/assets/images/apartment-2.jpg";
+import apartment3 from "@/assets/images/apartment-3.jpg";
+import apartment4 from "@/assets/images/apartment-4.jpg";
+import planMLocationMap from "@/assets/images/plan-m-location-map.jpg";
 import SimpleEnquiryForm from "@/components/SimpleEnquiryForm";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -32,7 +41,7 @@ const PlanM = () => {
       subtitle: "Redefining workspace excellence with next-gen infrastructure",
     },
     {
-      image: "https://planmbusinesspark.com/assets/images/resources/about-1-1.jpg",
+      image: planMAbout,
       title: "Modern Architecture",
       subtitle: "A new benchmark for business spaces in Navi Mumbai",
     },
@@ -89,7 +98,7 @@ const PlanM = () => {
               >
                 <div className="absolute -inset-4 bg-yellow-600/20 rounded-3xl blur-xl transform rotate-6 animate-pulse"></div>
                 <img
-                  src="https://planmbusinesspark.com/assets/images/resources/about-1-1.jpg"
+                  src={planMAbout}
                   alt="Plan M Project Overview"
                   className="relative rounded-2xl shadow-2xl w-full max-w-md object-cover transform hover:scale-105 transition-transform duration-500"
                 />
@@ -161,7 +170,7 @@ const PlanM = () => {
 
       {/* Image Gallery Section */}
       <ImageGallery
-        images={["https://planmproject.com/images/floor-plan/Picture2.jpeg","https://planmproject.com/images/floor-plan/Picture2.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg","https://planmproject.com/images/floor-plan/Picture4.jpeg"]}
+        images={[floorPlan1, floorPlan1, floorPlan2, floorPlan2, floorPlan2, floorPlan2, floorPlan2, floorPlan2]}
         colorScheme="yellow"
       />
 
@@ -317,13 +326,13 @@ const PlanM = () => {
                 <img
                   src={
                     index === 0
-                      ? "https://planmbusinesspark.com/assets/images/resources/apartment-1-1.jpg"
+                      ? apartment1
                       : index === 1
-                        ? "https://planmbusinesspark.com/assets/images/resources/apartment-1-2.jpg"
+                        ? apartment2
                         : index === 2
-                          ? "https://planmbusinesspark.com/assets/images/resources/apartment-1-3.jpg"
+                          ? apartment3
                           : index === 3
-                            ? "https://planmbusinesspark.com/assets/images/resources/apartment-1-4.jpg"
+                            ? apartment4
                             : amenity.image
                   }
                   alt={amenity.title}
@@ -406,7 +415,7 @@ const PlanM = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-yellow-600/20 rounded-3xl blur-xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
                 <img
-                  src="https://planmproject.com/images/location-map-min.jpg"
+                  src={planMLocationMap}
                   alt="Location Map"
                   className="relative w-full max-w-xl object-cover shadow-2xl rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
                 />

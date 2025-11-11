@@ -122,7 +122,7 @@ All colors MUST be HSL.
 
 @layer utilities {
   .hover-lift {
-    @apply transition-all duration-300 ease-smooth hover:-translate-y-2 hover:shadow-lg;
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
   }
 
   .hover-zoom {
@@ -130,7 +130,7 @@ All colors MUST be HSL.
   }
 
   .hover-zoom img {
-    @apply transition-transform duration-500 ease-smooth;
+    @apply transition-transform duration-500;
   }
 
   .hover-zoom:hover img {

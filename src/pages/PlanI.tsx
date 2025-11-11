@@ -4,17 +4,35 @@ import HeroSlider from "@/components/HeroSlider";
 import AmenityCard from "@/components/AmenityCard";
 import ContactForm from "@/components/ContactForm";
 import ImageGallery from "@/components/ImageGallery";
-import galleryImage from "@/assets/image.png";
-import image0 from "@/assets/image0.png";
-import image1 from "@/assets/image1.png";
-import image2 from "@/assets/image2.png";
-import image3 from "@/assets/image3.png";
-import image4 from "@/assets/image4.png";
-import planIHero from "@/assets/plan-i-hero.jpg";
-import amenityConference from "@/assets/amenity-conference.jpg";
-import amenityValet from "@/assets/amenity-valet.jpg";
-import amenityCafeteria from "@/assets/amenity-cafeteria.jpg";
-import amenityGym from "@/assets/amenity-gym.jpg";
+// Gallery images - using floor plans as placeholders
+import galleryImage from "@/assets/images/floor-plan-1.jpeg";
+import image0 from "@/assets/images/floor-plan-1.jpeg";
+import image1 from "@/assets/images/floor-plan-1.jpeg";
+import image2 from "@/assets/images/floor-plan-2.jpeg";
+import image3 from "@/assets/images/floor-plan-2.jpeg";
+import image4 from "@/assets/images/floor-plan-2.jpeg";
+import planIHero from "@/assets/images/plan-i-hero-main.jpg";
+import planIPodium from "@/assets/images/plan-i-podium.webp";
+// Using apartment images as placeholders for missing amenity images
+import amenityConference from "@/assets/images/apartment-1.jpg";
+import amenityValet from "@/assets/images/apartment-2.jpg";
+import amenityCafeteria from "@/assets/images/apartment-3.jpg";
+import amenityGym from "@/assets/images/apartment-4.jpg";
+import amenityRoom from "@/assets/images/amenity-room.webp";
+import amenityPool from "@/assets/images/amenity-pool.webp";
+import amenityMiniGolf from "@/assets/images/amenity-mini-golf.jpg";
+import amenityGazebo from "@/assets/images/amenity-gazebo.jpg";
+import locationMap from "@/assets/images/location-map.webp";
+// Import icons
+import parkIcon from "@/assets/images/icons/park.svg";
+import officeSpaceIcon from "@/assets/images/icons/office-space.svg";
+import parkingIcon from "@/assets/images/icons/parking.svg";
+import liftsIcon from "@/assets/images/icons/lifts.svg";
+import deskIcon from "@/assets/images/icons/desk.svg";
+import chargingStationsIcon from "@/assets/images/icons/charging-stations.svg";
+import stationIcon from "@/assets/images/icons/station.svg";
+import highwayIcon from "@/assets/images/icons/highway.svg";
+import stadiumIcon from "@/assets/images/icons/stadium.svg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const PlanI = () => {
@@ -34,7 +52,7 @@ const PlanI = () => {
       subtitle: "Where design meets technology and sustainability",
     },
     {
-      image: "https://plani-tescon.com/media/images/amenities/podium-level-new.webp",
+      image: planIPodium,
       title: "Podium Level View",
       subtitle: "Premium amenities for your business success",
     },
@@ -62,22 +80,22 @@ const PlanI = () => {
       description: "Fully equipped fitness center with modern amenities for your wellness journey.",
     },
     {
-      image: "https://plani-tescon.com/media/images/amenities/room.webp",
+      image: amenityRoom,
       title: "Children Cache",
       description: "A dedicated play area for children to enjoy and have fun in a safe environment.",
     },
     {
-      image: "https://plani-tescon.com/media/images/amenities/pool.webp",
+      image: amenityPool,
       title: "Infinity Pool",
       description: "Luxurious infinity pool for relaxation and leisure with a stunning view.",
     },
     {
-      image: "https://plani-tescon.com/media/images/amenities/mini-golf.jpg",
+      image: amenityMiniGolf,
       title: "Mini Golf",
       description: "Mini golf course for recreation and entertainment for all ages.",
     },
     {
-      image: "https://plani-tescon.com/media/images/amenities/gazebo.jpg",
+      image: amenityGazebo,
       title: "Gazebo",
       description: "Beautifully designed gazebo for gatherings, relaxation, and outdoor enjoyment.",
     },
@@ -139,28 +157,28 @@ const PlanI = () => {
               <div className="grid grid-cols-3 gap-x-8 gap-y-16 text-white">
                 {/* Row 1 */}
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/park.svg" alt="G+23 Storey Commercial Business Park" className="w-16 h-16 mb-2" />
+                  <img src={parkIcon} alt="G+23 Storey Commercial Business Park" className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">G+23 Storey Commercial<br />Business Park</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/office-space.svg" alt="Office Spaces Ranging From 387 Sq. Ft. to 10,000 Sq. Ft." className="w-16 h-16 mb-2" />
+                  <img src={officeSpaceIcon} alt="Office Spaces Ranging From 387 Sq. Ft. to 10,000 Sq. Ft." className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">Office Spaces Ranging From 387 Sq. Ft. to<br />10,000 Sq. Ft.</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/parking.svg" alt="Robotic Car Parking" className="w-16 h-16 mb-2" />
+                  <img src={parkingIcon} alt="Robotic Car Parking" className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">Robotic Car Parking</div>
                 </div>
                 {/* Row 2 */}
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/lifts.svg" alt="Miconic Lifts" className="w-16 h-16 mb-2" />
+                  <img src={liftsIcon} alt="Miconic Lifts" className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">Miconic Lifts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/desk.svg" alt="Bare Shell Office Spaces" className="w-16 h-16 mb-2" />
+                  <img src={deskIcon} alt="Bare Shell Office Spaces" className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">Bare Shell Office Spaces</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="https://plani-tescon.com/media/images/highlights/charging-stations.svg" alt="Electric Car Charging Stations" className="w-16 h-16 mb-2" />
+                  <img src={chargingStationsIcon} alt="Electric Car Charging Stations" className="w-16 h-16 mb-2" />
                   <div className="font-bold mt-4 text-center text-base">Electric Car Charging Stations</div>
                 </div>
               </div>
@@ -390,7 +408,7 @@ const PlanI = () => {
               </p>
               <div className="space-y-8">
                 <div className="flex items-center gap-4">
-                  <img src="https://plani-tescon.com/media/images/location/station.svg" alt="Railway Station" className="w-10 h-10" />
+                  <img src={stationIcon} alt="Railway Station" className="w-10 h-10" />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-green-700 text-xl">•</span>
@@ -399,7 +417,7 @@ const PlanI = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <img src="https://plani-tescon.com/media/images/location/highway.svg" alt="Highway" className="w-10 h-10" />
+                  <img src={highwayIcon} alt="Highway" className="w-10 h-10" />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-green-700 text-xl">•</span>
@@ -408,7 +426,7 @@ const PlanI = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <img src="https://plani-tescon.com/media/images/location/stadium.svg" alt="Stadium" className="w-10 h-10" />
+                  <img src={stadiumIcon} alt="Stadium" className="w-10 h-10" />
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-green-700 text-xl">•</span>
@@ -420,7 +438,7 @@ const PlanI = () => {
             </div>
             {/* Right: Map Image */}
             <div className="flex-1 flex justify-center items-center">
-              <img src="https://plani-tescon.com/media/images/location/map.webp" alt="Plan I Location Map" className="w-full max-w-xl rounded-xl shadow-lg" />
+              <img src={locationMap} alt="Plan I Location Map" className="w-full max-w-xl rounded-xl shadow-lg" />
             </div>
           </div>
           {/* Side Buttons */}

@@ -16,5 +16,12 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "./",
+  // Use "/" for custom domain (planbusinesspark.com)
+  // GitHub Pages with custom domain needs root path
+  base: "/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: false,
+  },
 }));
