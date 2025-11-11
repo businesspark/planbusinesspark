@@ -60,7 +60,7 @@ const Index = () => {
               <ProjectCard
                 image={planMHero}
                 title="Plan M Business Park"
-                description="A G+30 storey commercial IT/ITES business park designed for innovation and efficiency, offering world-class amenities and modern architecture on LBS Road, Mulund–Thane."
+                description="Plan M is a state-of-the-art G+36 storeyed elevation situated at Turbhe, the business district of Navi Mumbai. This ultra modern project comprises a list of modern workspaces coupled with amenities that are unheard in the commercial real estate segment. "
                 link="/plan-m"
                 colorScheme="yellow"
                 slideDirection="right"
@@ -71,7 +71,7 @@ const Index = () => {
             {/* Plan I Card - Slides from Left */}
             <div ref={planICard.elementRef}>
               <ProjectCard
-                image={planIHero}
+                image="https://revaahomes.com/wp-content/uploads/2024/11/Tescon-Plan-I-Business-Park-Nerul-Banner-1-1.jpg"
                 title="Plan I Business Park"
                 description="A G+23 storey premium business park located minutes from the Sion–Panvel Highway, blending design, technology, and sustainability in Nerul, Navi Mumbai."
                 link="/plan-i"
