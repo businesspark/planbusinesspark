@@ -16,9 +16,8 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Use "/" for custom domain (planbusinesspark.com)
-  // The custom domain is configured, so we use root path
-  base: "/",
+  // GitHub Pages with custom domain configuration
+  base: process.env.NODE_ENV === 'production' ? '/' : '/',
   build: {
     outDir: "dist",
     assetsDir: "assets",
