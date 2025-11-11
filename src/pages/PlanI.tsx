@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroSlider from "@/components/HeroSlider";
+import Hero from "@/components/Hero";
 import AmenityCard from "@/components/AmenityCard";
 import ContactForm from "@/components/ContactForm";
 import ImageGallery from "@/components/ImageGallery";
@@ -11,7 +11,8 @@ import image1 from "@/assets/images/floor-plan-1.jpeg";
 import image2 from "@/assets/images/floor-plan-2.jpeg";
 import image3 from "@/assets/images/floor-plan-2.jpeg";
 import image4 from "@/assets/images/floor-plan-2.jpeg";
-import planIHero from "@/assets/images/plan-i-hero-main.jpg";
+import planIHero from "@/assets/images/banner2.png";
+import planIHeroMobile from "@/assets/images/banner5.png";
 import planIPodium from "@/assets/images/plan-i-podium.webp";
 // Using apartment images as placeholders for missing amenity images
 import amenityConference from "@/assets/images/apartment-1.jpg";
@@ -22,7 +23,7 @@ import amenityRoom from "@/assets/images/amenity-room.webp";
 import amenityPool from "@/assets/images/amenity-pool.webp";
 import amenityMiniGolf from "@/assets/images/amenity-mini-golf.jpg";
 import amenityGazebo from "@/assets/images/amenity-gazebo.jpg";
-import locationMap from "@/assets/images/location-map.webp";
+import locationMap from "@/assets/images/map.jpg";
 // Import icons
 import parkIcon from "@/assets/images/icons/park.svg";
 import officeSpaceIcon from "@/assets/images/icons/office-space.svg";
@@ -45,59 +46,26 @@ const PlanI = () => {
   const videoSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const locationSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const contactSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
-  const heroSlides = [
-    {
-      image: planIHero,
-      title: "Plan I Business Park",
-      subtitle: "Where design meets technology and sustainability",
-    },
-    {
-      image: planIPodium,
-      title: "Podium Level View",
-      subtitle: "Premium amenities for your business success",
-    },
-  ];
-
   const amenities = [
     {
       image: amenityConference,
-      title: "Digital Conference Area",
-      description: "State-of-the-art digitally equipped conference facilities for seamless business meetings.",
+      title: "",
+      description: "",
     },
     {
       image: amenityValet,
-      title: "Valet & Concierge",
-      description: "Premium valet and concierge services ensuring exceptional hospitality for your business.",
+      title: "",
+      description: "",
     },
     {
       image: amenityCafeteria,
-      title: "Cafeteria",
-      description: "Contemporary dining space with diverse culinary options for your convenience.",
+      title: "",
+      description: "",
     },
     {
       image: amenityGym,
-      title: "Equipped Gymnasium",
-      description: "Fully equipped fitness center with modern amenities for your wellness journey.",
-    },
-    {
-      image: amenityRoom,
-      title: "Children Cache",
-      description: "A dedicated play area for children to enjoy and have fun in a safe environment.",
-    },
-    {
-      image: amenityPool,
-      title: "Infinity Pool",
-      description: "Luxurious infinity pool for relaxation and leisure with a stunning view.",
-    },
-    {
-      image: amenityMiniGolf,
-      title: "Mini Golf",
-      description: "Mini golf course for recreation and entertainment for all ages.",
-    },
-    {
-      image: amenityGazebo,
-      title: "Gazebo",
-      description: "Beautifully designed gazebo for gatherings, relaxation, and outdoor enjoyment.",
+      title: "",
+      description: "",
     },
   ];
 
@@ -106,30 +74,36 @@ const PlanI = () => {
       <Navbar />
       
   {/* Hero Section */}
-  <HeroSlider slides={heroSlides} showButtons={false} />
+  <Hero
+    image={planIHero}
+    mobileImage={planIHeroMobile}
+    title="Plan I Business Park"
+    subtitle="Where design meets technology and sustainability"
+    showButtons={false}
+  />
 
       {/* About Section */}
-      <section className={`py-16 lg:py-24 bg-white relative overflow-hidden transition-all duration-1000 ${overviewSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className={`py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden transition-all duration-1000 ${overviewSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={overviewSection.elementRef} className="max-w-5xl mx-auto text-center animate-fade-in">
             {/* Project Overview Badge */}
-            <div className="flex justify-center mb-6">
-              <span className="inline-block px-6 py-2 border-2 border-planI-primary rounded-lg font-bold text-planI-primary bg-white text-lg tracking-wide shadow-sm" style={{letterSpacing: "1px"}}>
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <span className="inline-block px-4 sm:px-6 py-2 border-2 border-planI-primary rounded-lg font-bold text-planI-primary bg-white text-sm sm:text-lg tracking-wide shadow-sm" style={{letterSpacing: "1px"}}>
                 PROJECT OVERVIEW
               </span>
             </div>
             {/* Divider */}
-            <div className="flex items-center justify-center mb-8">
-              <span className="h-1 w-32 bg-planI-muted" />
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <span className="h-1 w-16 sm:w-32 bg-planI-muted" />
               <span className="mx-2"><svg width="16" height="32" viewBox="0 0 16 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" width="4" height="32" rx="2" fill="#1A7F4A"/></svg></span>
-              <span className="h-1 w-32 bg-planI-muted" />
+              <span className="h-1 w-16 sm:w-32 bg-planI-muted" />
             </div>
             {/* Heading */}
-            <h1 className="text-3xl lg:text-5xl font-bold text-foreground mb-6" style={{fontFamily: 'serif'}}>
+            <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance" style={{fontFamily: 'serif'}}>
               PLAN I - NAVI MUMBAI'S URBAN FOREST FOR ENTERPRISES
             </h1>
             {/* Description */}
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed mb-2">
+            <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed mb-2 px-4 text-balance">
               Located just minutes away from the Sion-Panvel highway, Plan I Business Park is more than just another commercial address - it's a visionary workspace that's redefining the way modern businesses operate. Spread across an impressive 4,75,000 sq.ft. and soaring 23 stories into the sky, this landmark destination features office spaces engineered to uplift your business experience, providing your team the perfect launchpad for success. Whether you're a solopreneur or leading a sizable organization, Plan I is the workspace that's <span className="font-bold">designed to deliver the maximum</span> to support your ambitions.
             </p>
           </div>
@@ -137,131 +111,122 @@ const PlanI = () => {
       </section>
 
       {/* Key Highlights Section */}
-      <section className={`py-16 bg-[#115C37] transition-all duration-1000 ${highlightsSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className={`py-12 sm:py-16 bg-[#115C37] transition-all duration-1000 ${highlightsSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div ref={highlightsSection.elementRef} className="max-w-5xl mx-auto text-center animate-fade-in">
             {/* Key Highlights Badge */}
-            <div className="flex justify-center mb-6">
-              <span className="inline-block px-6 py-2 border-2 border-white rounded-lg font-bold text-white bg-[#115C37] text-lg tracking-wide shadow-sm" style={{letterSpacing: "1px"}}>
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <span className="inline-block px-4 sm:px-6 py-2 border-2 border-white rounded-lg font-bold text-white bg-[#115C37] text-sm sm:text-lg tracking-wide shadow-sm" style={{letterSpacing: "1px"}}>
                 KEY HIGHLIGHTS
               </span>
             </div>
             {/* Divider */}
-            <div className="flex items-center justify-center mb-12">
-              <span className="h-1 w-32 bg-white" />
+            <div className="flex items-center justify-center mb-8 sm:mb-12">
+              <span className="h-1 w-16 sm:w-32 bg-white" />
               <span className="mx-2"><svg width="16" height="32" viewBox="0 0 16 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" width="4" height="32" rx="2" fill="#fff"/></svg></span>
-              <span className="h-1 w-32 bg-white" />
+              <span className="h-1 w-16 sm:w-32 bg-white" />
             </div>
             {/* Highlights Grid */}
             <div className="relative max-w-4xl mx-auto">
-              <div className="grid grid-cols-3 gap-x-8 gap-y-16 text-white">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-x-8 sm:gap-y-12 lg:gap-y-16 text-white">
                 {/* Row 1 */}
                 <div className="flex flex-col items-center">
-                  <img src={parkIcon} alt="G+23 Storey Commercial Business Park" className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">G+23 Storey Commercial<br />Business Park</div>
+                  <img src={parkIcon} alt="G+23 Storey Commercial Business Park" className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base text-balance">G+23 Storey Commercial<br />Business Park</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={officeSpaceIcon} alt="Office Spaces Ranging From 387 Sq. Ft. to 10,000 Sq. Ft." className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">Office Spaces Ranging From 387 Sq. Ft. to<br />10,000 Sq. Ft.</div>
+                  <img src={officeSpaceIcon} alt="Office Spaces Ranging From 387 Sq. Ft. to 10,000 Sq. Ft." className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base text-balance">Office Spaces Ranging From 387 Sq. Ft. to<br />10,000 Sq. Ft.</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={parkingIcon} alt="Robotic Car Parking" className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">Robotic Car Parking</div>
+                  <img src={parkingIcon} alt="Robotic Car Parking" className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base">Robotic Car Parking</div>
                 </div>
                 {/* Row 2 */}
                 <div className="flex flex-col items-center">
-                  <img src={liftsIcon} alt="Miconic Lifts" className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">Miconic Lifts</div>
+                  <img src={liftsIcon} alt="Miconic Lifts" className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base">Miconic Lifts</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={deskIcon} alt="Bare Shell Office Spaces" className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">Bare Shell Office Spaces</div>
+                  <img src={deskIcon} alt="Bare Shell Office Spaces" className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base">Bare Shell Office Spaces</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src={chargingStationsIcon} alt="Electric Car Charging Stations" className="w-16 h-16 mb-2" />
-                  <div className="font-bold mt-4 text-center text-base">Electric Car Charging Stations</div>
+                  <img src={chargingStationsIcon} alt="Electric Car Charging Stations" className="w-12 h-12 sm:w-16 sm:h-16 mb-2" />
+                  <div className="font-bold mt-2 sm:mt-4 text-center text-sm sm:text-base text-balance">Electric Car Charging Stations</div>
                 </div>
               </div>
-              {/* Vertical Dividers */}
-              <div className="absolute top-0 left-1/3 w-px h-full bg-white opacity-40" style={{transform: 'translateX(-50%)'}}></div>
-              <div className="absolute top-0 left-2/3 w-px h-full bg-white opacity-40" style={{transform: 'translateX(-50%)'}}></div>
-              {/* Horizontal Divider */}
-              <div className="absolute left-0 right-0 top-1/2 h-px bg-white opacity-40" style={{transform: 'translateY(-50%)'}}></div>
+              {/* Dividers - Hidden on mobile for cleaner look */}
+              <div className="hidden lg:block absolute top-0 left-1/3 w-px h-full bg-white opacity-40" style={{transform: 'translateX(-50%)'}}></div>
+              <div className="hidden lg:block absolute top-0 left-2/3 w-px h-full bg-white opacity-40" style={{transform: 'translateX(-50%)'}}></div>
+              <div className="hidden lg:block absolute left-0 right-0 top-1/2 h-px bg-white opacity-40" style={{transform: 'translateY(-50%)'}}></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Project Gallery Section */}
-      <div ref={gallerySection.elementRef} className={`transition-all duration-1000 ${gallerySection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <ImageGallery
-          images={[image0, image1, image2, image3, image4]} 
-          colorScheme="green"
-        />
-      </div>
-
-  {/* Pricing Section */}
-  <section ref={pricingSection.elementRef} className={`py-20 lg:py-32 bg-gradient-to-br from-green-50 to-green-100 transition-all duration-1000 ${pricingSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <div className="flex justify-center mb-6">
-              <span className="inline-block px-6 py-2 border-2 border-green-700 rounded-lg font-bold text-green-700 bg-white text-lg tracking-wide shadow-sm">
+      {/* Pricing Section */}
+  <section ref={pricingSection.elementRef} className={`py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-green-50 to-green-100 transition-all duration-1000 ${pricingSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <span className="inline-block px-4 sm:px-6 py-2 border-2 border-green-700 rounded-lg font-bold text-green-700 bg-white text-sm sm:text-lg tracking-wide shadow-sm">
                 COST SHEET
               </span>
             </div>
-            <div className="flex items-center justify-center mb-8">
-              <span className="h-1 w-32 bg-green-400" />
-              <span className="mx-2 text-green-700 text-2xl">•</span>
-              <span className="h-1 w-32 bg-green-400" />
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <span className="h-1 w-16 sm:w-32 bg-green-400" />
+              <span className="mx-2 text-green-700 text-xl sm:text-2xl">•</span>
+              <span className="h-1 w-16 sm:w-32 bg-green-400" />
             </div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 text-balance">
               Investment Options
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4 text-balance">
               Flexible pricing plans designed to meet your business requirements with transparent cost structure.
             </p>
           </div>
 
           <div className="max-w-7xl mx-auto">
             {/* Header */}
-            <div className="bg-green-700 text-white p-6 rounded-t-2xl">
-              <h3 className="text-2xl font-bold text-center">PLAN I - COST BREAKDOWN</h3>
+            <div className="bg-green-700 text-white p-4 sm:p-6 rounded-t-2xl">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-center text-balance">PLAN I - COST BREAKDOWN</h3>
             </div>
             
             {/* Pricing Table */}
             <div className="bg-white shadow-2xl rounded-b-2xl overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full">
+                <table className="w-full min-w-[600px]">
                   <thead>
                     <tr className="bg-green-100 border-b-2 border-green-200">
-                      <th className="px-6 py-4 text-left font-bold text-green-800">Particulars</th>
-                      <th className="px-6 py-4 text-center font-bold text-green-800">774 Sq.Ft</th>
-                      <th className="px-6 py-4 text-center font-bold text-green-800">794 Sq.Ft</th>
-                      <th className="px-6 py-4 text-center font-bold text-green-800">1128 Sq.Ft</th>
-                      <th className="px-6 py-4 text-center font-bold text-green-800">1418 Sq.Ft</th>
+                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-left font-bold text-green-800 text-xs sm:text-sm">Particulars</th>
+                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">774 Sq.Ft</th>
+                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">794 Sq.Ft</th>
+                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1128 Sq.Ft</th>
+                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1418 Sq.Ft</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Maintenance Area (Sq.ft)</td>
-                      <td className="px-6 py-4 text-center text-gray-800">774</td>
-                      <td className="px-6 py-4 text-center text-gray-800">794</td>
-                      <td className="px-6 py-4 text-center text-gray-800">1128</td>
-                      <td className="px-6 py-4 text-center text-gray-800">1418</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-semibold text-gray-700 text-xs sm:text-sm">Maintenance Area (Sq.ft)</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">774</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">794</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">1128</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">1418</td>
                     </tr>
                     <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Usable Carpet Area (Sq.ft)</td>
-                      <td className="px-6 py-4 text-center text-gray-800">387</td>
-                      <td className="px-6 py-4 text-center text-gray-800">397</td>
-                      <td className="px-6 py-4 text-center text-gray-800">564</td>
-                      <td className="px-6 py-4 text-center text-gray-800">709</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-semibold text-gray-700 text-xs sm:text-sm">Usable Carpet Area (Sq.ft)</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">387</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">397</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">564</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">709</td>
                     </tr>
                     <tr className="hover:bg-green-50 transition-colors bg-green-25">
-                      <td className="px-6 py-4 font-bold text-green-800">Sale Value</td>
-                      <td className="px-6 py-4 text-center font-bold text-green-800">69,00,000</td>
-                      <td className="px-6 py-4 text-center font-bold text-green-800">71,46,000</td>
-                      <td className="px-6 py-4 text-center font-bold text-green-800">1,01,52,000</td>
-                      <td className="px-6 py-4 text-center font-bold text-green-800">1,27,62,000</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-bold text-green-800 text-xs sm:text-sm">Sale Value</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">69,00,000</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">71,46,000</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1,01,52,000</td>
+                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1,27,62,000</td>
                     </tr>
                     <tr className="hover:bg-green-50 transition-colors">
                       <td className="px-6 py-4 font-semibold text-gray-700">Car Parking (1)</td>
@@ -332,16 +297,16 @@ const PlanI = () => {
             </div>
 
             {/* Terms & Conditions */}
-            <div className="bg-gray-50 p-8 rounded-2xl mt-8 border-l-4 border-green-600">
-              <h4 className="text-xl font-bold text-gray-800 mb-6">TERMS & CONDITIONS:</h4>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700 space-y-2">
-                <div className="space-y-3">
+            <div className="bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-2xl mt-6 sm:mt-8 border-l-4 border-green-600">
+              <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">TERMS & CONDITIONS:</h4>
+              <div className="grid md:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm text-gray-700 space-y-1 sm:space-y-2">
+                <div className="space-y-2 sm:space-y-3">
                   <p><span className="font-semibold">1.</span> Total value includes Basic Rate, Development Charges, Car Parking and Club Membership.</p>
                   <p><span className="font-semibold">2.</span> Stamp Duty 6% & Registration charges as applicable. Subject to Change.</p>
                   <p><span className="font-semibold">3.</span> GST to be paid separately as applicable.</p>
                   <p><span className="font-semibold">4.</span> Society Maintenance Charges for 2 years at the time of possession on Maintenance area.</p>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <p><span className="font-semibold">5.</span> Society Formation Charges, Transfer Charges payable as actual at the time of possession.</p>
                   <p><span className="font-semibold">6.</span> Society Formation Charges Rs. 1,00,000/- and MIDC Transfer Charges Rs. 1,50,000/-payable at the time of Possession.</p>
                   <p><span className="font-semibold">7.</span> Above rates are subject to change without prior intimation at the discretion of the Developer.</p>
@@ -353,26 +318,56 @@ const PlanI = () => {
       </section>
 
   {/* Amenities Section */}
-  <section ref={amenitiesSection.elementRef} className={`py-20 lg:py-32 bg-background transition-all duration-1000 ${amenitiesSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-              Amenities & Facilities
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Designed for performance and comfort, Plan I offers a premium range of amenities for your business success.
-            </p>
-          </div>
+  <section 
+    ref={amenitiesSection.elementRef}
+    className={`py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden transition-all duration-1000 ${
+      amenitiesSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+    }`}
+  >
+    <div className="container mx-auto px-4 lg:px-8">
+      <div 
+        className={`text-center mb-16 transition-all duration-1000 ${
+          amenitiesSection.isVisible 
+            ? "opacity-100 translate-y-0" 
+            : "opacity-0 translate-y-10"
+        }`}
+      >
+        <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4 transform hover:scale-105 transition-transform duration-300">
+          World-Class Amenities
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Designed for performance and comfort, Plan I offers a premium range of amenities for your business success.
+        </p>
+      </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {amenities.map((amenity, index) => (
-                <div className="min-h-[220px] flex animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <AmenityCard {...amenity} />
-                </div>
-            ))}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {amenities.map((amenity, index) => (
+          <div
+            key={index}
+            className={`group relative overflow-hidden rounded-2xl shadow-lg transform transition-all duration-700 ${
+              amenitiesSection.isVisible 
+                ? "opacity-100 translate-y-0 scale-100 animate-zoom-in" 
+                : "opacity-0 translate-y-20 scale-95"
+            } hover:scale-105 hover:shadow-2xl`}
+            style={{ 
+              transitionDelay: amenitiesSection.isVisible ? `${index * 0.15}s` : "0s"
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+            <img
+              src={amenity.image}
+              alt={amenity.title}
+              className="w-full h-[440px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 z-20">
+              <h3 className="text-2xl font-bold text-white mb-2">{amenity.title}</h3>
+              <p className="text-white/90 text-sm">{amenity.description}</p>
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+  </section>
 
   {/* Video Section */}
   <section ref={videoSection.elementRef} className={`py-20 lg:py-32 bg-background transition-all duration-1000 ${videoSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
@@ -468,30 +463,33 @@ const PlanI = () => {
 
             {/* Location & Map */}
             <div className="animate-slide-in space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">
-                  Prime Location
-                </h3>
+              <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-xl transform hover:scale-105 transition-transform duration-300">
+                <div className="flex items-center gap-2 mb-4">
+                  <span role="img" aria-label="location" className="text-3xl animate-bounce">📍</span>
+                  <h3 className="text-xl font-bold text-foreground">ADDRESS</h3>
+                </div>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Plan I's strategic location ensures seamless access to major highways, ports, and Mumbai's 
-                  growing commercial belt. Situated near the Thane–Belapur Road in Nerul, it offers excellent 
-                  connectivity to both Mumbai and the extended metropolitan region.
+                  Plan I Business Park, Nerul, Navi Mumbai<br />
+                  Maharashtra 400706
                 </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-planI-primary mt-2" />
-                    <div>
-                      <h4 className="font-semibold text-foreground">Nerul, Navi Mumbai</h4>
-                      <p className="text-sm text-muted-foreground">Minutes from Sion–Panvel Highway</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-planI-primary mt-2" />
-                    <div>
-                      <h4 className="font-semibold text-foreground">Superior Connectivity</h4>
-                      <p className="text-sm text-muted-foreground">Access to ports and major transport hubs</p>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2 mb-4">
+                  <span role="img" aria-label="phone" className="text-3xl animate-pulse">📞</span>
+                  <h3 className="text-xl font-bold text-foreground">CALL US NOW</h3>
+                </div>
+                <div className="space-y-2">
+                  {[
+                    "+91 81041 24183",
+                    "+91 93366 36577",
+                    "+91 87792 96362"
+                  ].map((phone, index) => (
+                    <a 
+                      key={index}
+                      href={`tel:${phone.replace(/\s/g, '')}`}
+                      className="block text-lg text-blue-700 font-semibold hover:text-blue-900 transform hover:translate-x-2 transition-all duration-300 cursor-pointer"
+                    >
+                      {phone}
+                    </a>
+                  ))}
                 </div>
               </div>
 

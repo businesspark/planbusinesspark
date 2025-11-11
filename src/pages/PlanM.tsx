@@ -1,13 +1,15 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroSlider from "@/components/HeroSlider";
+import Hero from "@/components/Hero";
 import AmenityCard from "@/components/AmenityCard";
 import ContactForm from "@/components/ContactForm";
 import ImageGallery from "@/components/ImageGallery";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import planMHero from "@/assets/images/plan-m-hero-main.jpg";
+import planMHero from "@/assets/images/banner1.png";
+import planMHeroMobile from "@/assets/images/banner6.png";
 import planMAbout from "@/assets/images/plan-m-about.jpg";
+import planMHeroMain from "@/assets/images/plan-m-hero-main.jpg";
 // Using apartment images as placeholders for missing amenity images
 import amenityConcierge from "@/assets/images/apartment-1.jpg";
 import amenityValet from "@/assets/images/apartment-2.jpg";
@@ -34,39 +36,26 @@ const PlanM = () => {
   const locationSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const contactSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
 
-  const heroSlides = [
-    {
-      image: planMHero,
-      title: "Plan M Business Park",
-      subtitle: "Redefining workspace excellence with next-gen infrastructure",
-    },
-    {
-      image: planMAbout,
-      title: "Modern Architecture",
-      subtitle: "A new benchmark for business spaces in Navi Mumbai",
-    },
-  ];
-
   const amenities = [
     {
       image: amenityConcierge,
-      title: "Concierge Services",
-      description: "Professional concierge services ensuring seamless day-to-day operations for your business.",
+      title: "",
+      description: "",
     },
     {
       image: amenityValet,
-      title: "Valet Parking",
-      description: "Premium valet parking services for your convenience and that of your clients.",
+      title: "",
+      description: "",
     },
     {
       image: amenityCafeteria,
-      title: "Cafeteria",
-      description: "Modern cafeteria offering diverse dining options in a comfortable setting.",
+      title: "",
+      description: "",
     },
     {
       image: amenityGym,
-      title: "Fitness Center",
-      description: "Fully equipped gymnasium with state-of-the-art equipment and professional trainers.",
+      title: "",
+      description: "",
     },
   ];
 
@@ -74,14 +63,20 @@ const PlanM = () => {
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       {/* Hero Section */}
-      <HeroSlider slides={heroSlides} />
+      <Hero
+        image={planMHero}
+        mobileImage={planMHeroMobile}
+        title="Plan M Business Park"
+        subtitle="Modern Architecture"
+        showButtons={false}
+      />
 
       {/* About Section */}
-      <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-8 sm:py-12 lg:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             ref={overviewSection.elementRef}
-            className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-1000 ${
+            className={`grid md:grid-cols-2 gap-8 sm:gap-12 items-center transition-all duration-1000 ${
               overviewSection.isVisible 
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-10"
@@ -98,27 +93,27 @@ const PlanM = () => {
               >
                 <div className="absolute -inset-4 bg-yellow-600/20 rounded-3xl blur-xl transform rotate-6 animate-pulse"></div>
                 <img
-                  src={planMAbout}
+                  src={planMHeroMain}
                   alt="Plan M Project Overview"
-                  className="relative rounded-2xl shadow-2xl w-full max-w-md object-cover transform hover:scale-105 transition-transform duration-500"
+                  className="relative rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md h-[300px] sm:h-[400px] lg:h-[500px] object-cover transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
             {/* Content Side */}
             <div 
-              className={`transform transition-all duration-1000 delay-500 ${
+              className={`transform transition-all duration-1000 delay-500 text-center md:text-left ${
                 overviewSection.isVisible 
                   ? "opacity-100 translate-x-0" 
                   : "opacity-0 translate-x-10"
               }`}
             >
-              <h2 className="text-5xl font-bold text-yellow-700 mb-6 uppercase tracking-wide transform hover:scale-105 transition-transform duration-300">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-yellow-700 mb-4 sm:mb-6 uppercase tracking-wide transform hover:scale-105 transition-transform duration-300 text-balance">
                 PROJECT OVERVIEW
               </h2>
-              <p className="text-base text-gray-700 mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 leading-relaxed text-balance">
                 Plan M is a state-of-the-art G+36 storeyed elevation situated at Turbhe, the business district of Navi Mumbai. This ultra modern project comprises a list of modern workspaces coupled with amenities that are unheard in the commercial real estate segment. Plan M is all set to redefine the way you perceive business spaces.
               </p>
-              <ul className="mb-8 space-y-4">
+              <ul className="mb-6 sm:mb-8 space-y-3 sm:space-y-4">
                 {[
                   "Glass Façade Elevation",
                   "8-Level Covered Parking Area",
@@ -128,25 +123,28 @@ const PlanM = () => {
                 ].map((feature, index) => (
                   <li 
                     key={index}
-                    className={`flex items-center gap-3 transform transition-all duration-500 ${
+                    className={`flex items-center gap-3 justify-center md:justify-start transform transition-all duration-500 ${
                       overviewSection.isVisible 
                         ? "opacity-100 translate-x-0" 
                         : "opacity-0 -translate-x-5"
                     }`}
                     style={{ transitionDelay: `${700 + index * 100}ms` }}
                   >
-                    <span className="text-yellow-500 text-xl animate-bounce-in">✔</span>
-                    <span className="font-bold text-gray-800 hover:text-yellow-600 transition-colors cursor-default">{feature}</span>
+                    <span className="text-yellow-500 text-lg sm:text-xl animate-bounce-in flex-shrink-0">✔</span>
+                    <span className="font-bold text-gray-800 hover:text-yellow-600 transition-colors cursor-default text-sm sm:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
-              <div className="flex gap-4 mt-8">
-                <button className="group relative bg-black text-white px-8 py-4 rounded-md font-semibold text-lg shadow-lg hover:bg-gray-800 transition-all transform hover:scale-110 hover:shadow-2xl overflow-hidden">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center md:justify-start">
+                <a 
+                  href="tel:+918104124183"
+                  className="group relative bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-sm sm:text-lg shadow-lg hover:bg-gray-800 transition-all transform hover:scale-110 hover:shadow-2xl overflow-hidden inline-block text-center"
+                >
                   <span className="relative z-10">Call Now</span>
                   <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-                </button>
+                </a>
                 <button 
-                  className="group relative bg-yellow-600 text-white px-8 py-4 rounded-md font-semibold text-lg shadow-lg hover:bg-yellow-700 transition-all transform hover:scale-110 hover:shadow-2xl animate-pulse-glow overflow-hidden"
+                  className="group relative bg-yellow-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-sm sm:text-lg shadow-lg hover:bg-yellow-700 transition-all transform hover:scale-110 hover:shadow-2xl animate-pulse-glow overflow-hidden"
                   onClick={() => setOpenEnquiry(true)}
                 >
                   <span className="relative z-10">View Details</span>
@@ -177,27 +175,27 @@ const PlanM = () => {
       {/* Price & Unit Details Section */}
       <section 
         ref={priceSection.elementRef}
-        className={`py-12 lg:py-20 bg-gradient-to-b from-white to-gray-50 transition-all duration-1000 ${
+        className={`py-8 sm:py-12 lg:py-20 bg-gradient-to-b from-white to-gray-50 transition-all duration-1000 ${
           priceSection.isVisible 
             ? "opacity-100 translate-y-0" 
             : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="container mx-auto px-4 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-yellow-700 mb-6 text-center uppercase tracking-wide transform hover:scale-105 transition-transform duration-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-yellow-700 mb-4 sm:mb-6 text-center uppercase tracking-wide transform hover:scale-105 transition-transform duration-300 text-balance">
             PRICE & UNIT DETAILS - PLAN M BUSINESS PARK
           </h2>
-          <div className="mb-6 text-sm text-muted-foreground space-y-2">
-            <p className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform">A. Midas Wing (Commercial Units) - 2333sq.ft carpet @ 4.18cr (negotiable) + taxes , 3000sq.ft carpet @ Price On Request & 6000sq.ft carpet @ Price On Request.</p>
-            <p className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform">B. West Wing (IT/ITES office spaces) - 370sq.ft carpet @ 67.77L (negotiable) + Taxes, 568sq.ft carpet @ 98.56L (negotiable) + Taxes.</p>
-            <p className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform">C. East Wing (IT/ITES office spaces) - 397sq.ft carpet @ 70L (negotiable) + taxes & 575sq.ft carpet @ 97.83L (negotiable) + Taxes.</p>
+          <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground space-y-2">
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">A. Midas Wing (Commercial Units) - 2333sq.ft carpet @ 4.18cr (negotiable) + taxes , 3000sq.ft carpet @ Price On Request & 6000sq.ft carpet @ Price On Request.</p>
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">B. West Wing (IT/ITES office spaces) - 370sq.ft carpet @ 67.77L (negotiable) + Taxes, 568sq.ft carpet @ 98.56L (negotiable) + Taxes.</p>
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">C. East Wing (IT/ITES office spaces) - 397sq.ft carpet @ 70L (negotiable) + taxes & 575sq.ft carpet @ 97.83L (negotiable) + Taxes.</p>
           </div>
-          <div className="overflow-x-auto mb-12">
-            <table className="min-w-full border border-gray-300 text-center mb-10 shadow-lg rounded-lg overflow-hidden">
+          <div className="overflow-x-auto mb-8 sm:mb-12">
+            <table className="w-full table-fixed border border-gray-300 text-center mb-6 sm:mb-10 shadow-lg rounded-lg overflow-hidden">
               <thead className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white">
                 <tr>
-                  <th className="px-4 py-3 border font-bold">Carpet</th>
-                  <th className="px-4 py-3 border font-bold">Price</th>
+                  <th className="w-1/2 px-4 sm:px-6 py-3 sm:py-4 border font-bold text-sm sm:text-base">Carpet Area (Sq.Ft)</th>
+                  <th className="w-1/2 px-4 sm:px-6 py-3 sm:py-4 border font-bold text-sm sm:text-base">Price</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -222,12 +220,12 @@ const PlanM = () => {
                       transitionDelay: priceSection.isVisible ? `${index * 0.05}s` : "0s"
                     }}
                   >
-                    <td className="border px-4 py-3 font-semibold">{row.carpet}</td>
-                    <td className="border px-4 py-3">
+                    <td className="border px-4 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-lg">{row.carpet}</td>
+                    <td className="border px-4 sm:px-6 py-3 sm:py-4">
                       {row.isPrice ? (
-                        <span className="font-bold text-yellow-700 text-lg">{row.price}</span>
+                        <span className="font-bold text-yellow-700 text-base sm:text-xl">{row.price}</span>
                       ) : (
-                        <button className="bg-yellow-700 text-white px-4 py-2 rounded font-bold hover:bg-yellow-800 transform hover:scale-110 transition-all shadow-md">
+                        <button className="bg-yellow-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:bg-yellow-800 transform hover:scale-105 transition-all shadow-md text-sm sm:text-base w-full max-w-xs">
                           {row.price}
                         </button>
                       )}
@@ -237,16 +235,16 @@ const PlanM = () => {
               </tbody>
             </table>
           </div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-yellow-700 mb-6 text-center uppercase tracking-wide transform hover:scale-105 transition-transform duration-300">
+          <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-yellow-700 mb-4 sm:mb-6 text-center uppercase tracking-wide transform hover:scale-105 transition-transform duration-300 text-balance">
             Payment Schedule (Plan M)
           </h2>
           <div className="overflow-x-auto">
-            <table className="min-w-full border border-gray-300 text-center shadow-lg rounded-lg overflow-hidden">
+            <table className="min-w-full min-w-[500px] border border-gray-300 text-center shadow-lg rounded-lg overflow-hidden">
               <thead className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white">
                 <tr>
-                  <th className="px-4 py-3 border font-bold">Sr. No.</th>
-                  <th className="px-4 py-3 border font-bold">Schedule</th>
-                  <th className="px-4 py-3 border font-bold">Collection Percentage</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 border font-bold text-xs sm:text-sm">Sr. No.</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 border font-bold text-xs sm:text-sm">Schedule</th>
+                  <th className="px-2 sm:px-4 py-2 sm:py-3 border font-bold text-xs sm:text-sm">Collection Percentage</th>
                 </tr>
               </thead>
               <tbody className="bg-white">
@@ -278,9 +276,9 @@ const PlanM = () => {
                       transitionDelay: priceSection.isVisible ? `${index * 0.03}s` : "0s"
                     }}
                   >
-                    <td className="border px-3 py-2 font-semibold">{row.sr}</td>
-                    <td className="border px-3 py-2">{row.schedule}</td>
-                    <td className="border px-3 py-2 font-bold text-yellow-700">{row.percentage}</td>
+                    <td className="border px-2 sm:px-3 py-1.5 sm:py-2 font-semibold text-xs sm:text-sm">{row.sr}</td>
+                    <td className="border px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-left sm:text-center">{row.schedule}</td>
+                    <td className="border px-2 sm:px-3 py-1.5 sm:py-2 font-bold text-yellow-700 text-xs sm:text-sm">{row.percentage}</td>
                   </tr>
                 ))}
               </tbody>
@@ -291,25 +289,25 @@ const PlanM = () => {
       {/* Amenities Section */}
       <section 
         ref={amenitiesSection.elementRef}
-        className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+        className="py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
               amenitiesSection.isVisible 
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4 transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 transform hover:scale-105 transition-transform duration-300 text-balance">
               World-Class Amenities
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4 text-balance">
               Plan M offers a curated range of lifestyle and business facilities designed for your comfort and productivity.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {amenities.map((amenity, index) => (
               <div
                 key={index}

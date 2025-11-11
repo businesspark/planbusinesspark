@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import CTASection from "@/components/CTASection";
-import homeHero1 from "@/assets/images/plan-m-hero-main.jpg"; // Using plan-m hero as home hero placeholder
+import homeHero1 from "@/assets/images/banner3.png";
+import homeHeroMobile from "@/assets/images/banner4.png";
 import planMHero from "@/assets/images/plan-m-hero-main.jpg";
 import planIHero from "@/assets/images/plan-i-hero-main.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -24,6 +25,7 @@ const Index = () => {
       {/* Hero Section */}
       <Hero
         image={homeHero1}
+        mobileImage={homeHeroMobile}
         title="Building Smarter Business Spaces"
         subtitle="Explore our landmark developments — Plan M and Plan I Business Parks."
         showButtons={true}
@@ -36,25 +38,25 @@ const Index = () => {
       {/* Project Showcase Section */}
       <section 
         ref={projectSection.elementRef}
-        className="py-20 lg:py-32 bg-gradient-home relative overflow-hidden"
+        className="py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-home relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className={`text-center mb-16 transition-all duration-1000 ${
+            className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
               projectSection.isVisible 
                 ? "opacity-100 translate-y-0" 
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4 text-balance transform hover:scale-105 transition-transform duration-300">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 text-balance transform hover:scale-105 transition-transform duration-300">
               Our Flagship Developments
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-balance px-4">
               Discover two world-class business parks designed for innovation, efficiency, and growth.
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {/* Plan M Card - Slides from Right */}
             <div ref={planMCard.elementRef}>
               <ProjectCard

@@ -36,11 +36,11 @@ const ProjectCard = ({ image, title, description, link, colorScheme, slideDirect
 
   return (
     <div 
-      className={`group relative bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-[1800ms] ease-in-out hover-lift ${slideClass}`}
+      className={`group relative bg-card rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-[1800ms] ease-in-out hover-lift ${slideClass}`}
     >
       <div className="grid md:grid-cols-2 gap-0">
         {/* Image Side */}
-        <div className={`relative h-80 md:h-full overflow-hidden ${isPlanI ? 'order-2 md:order-2' : 'order-1 md:order-1'}`}>
+        <div className={`relative h-64 sm:h-80 md:h-full overflow-hidden ${isPlanI ? 'order-2 md:order-2' : 'order-1 md:order-1'}`}>
           <img
             src={image}
             alt={title}
@@ -50,20 +50,20 @@ const ProjectCard = ({ image, title, description, link, colorScheme, slideDirect
         </div>
 
         {/* Content Side */}
-        <div className={`p-8 lg:p-12 flex flex-col justify-center ${isPlanI ? 'order-1 md:order-1' : 'order-2 md:order-2'}`}>
-          <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 transform hover:scale-105 transition-transform duration-300">
+        <div className={`p-6 sm:p-8 lg:p-12 flex flex-col justify-center ${isPlanI ? 'order-1 md:order-1' : 'order-2 md:order-2'}`}>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4 transform hover:scale-105 transition-transform duration-300 text-balance">
             {title}
           </h3>
-          <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+          <p className="text-muted-foreground mb-6 sm:mb-8 leading-relaxed text-base sm:text-lg text-balance">
             {description}
           </p>
           <Button
             onClick={() => navigate(link)}
-            className={`${buttonClass} text-white px-8 py-6 text-lg rounded-2xl group/btn transition-all hover:scale-110 w-fit shadow-lg hover:shadow-xl`}
+            className={`${buttonClass} text-white px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-xl sm:rounded-2xl group/btn transition-all hover:scale-110 w-fit shadow-lg hover:shadow-xl`}
             size="lg"
           >
             View Details
-            <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" size={20} />
+            <ArrowRight className="ml-2 transition-transform group-hover/btn:translate-x-1" size={18} />
           </Button>
         </div>
       </div>
