@@ -4,24 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plan Business Parks | Premium Commercial Development</title>
-    
-    <!-- GitHub Pages SPA redirect script -->
-    <script>
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?')
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          )
-        }
-      }(window.location))
-      
-      // Debug logging
-      console.log('Page loaded:', window.location.href);
-      console.log('Document ready state:', document.readyState);
-    </script>
     <meta name="description" content="Discover Plan M and Plan I Business Parks - flagship commercial developments offering world-class IT/ITES spaces with modern architecture and premium amenities." />
     <meta name="author" content="Plan Business Parks" />
     <meta name="keywords" content="business park, commercial space, IT park, ITES, office space, Mumbai, Navi Mumbai, Plan M, Plan I" />
@@ -82,21 +64,7 @@
       </div>
     </noscript>
     
-    <div id="root">
-      <!-- Loading fallback -->
-      <div style="padding: 40px; font-family: Arial, sans-serif; text-align: center; background: #f8f9fa; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h1 style="color: #1a472a; margin-bottom: 20px;">Plan Business Parks</h1>
-        <p style="color: #666; margin-bottom: 20px;">Loading...</p>
-        <div style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #1a472a; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
-        <style>
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
-        <p style="font-size: 14px; color: #999; margin-top: 30px;">If this takes too long, please refresh the page.</p>
-      </div>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
