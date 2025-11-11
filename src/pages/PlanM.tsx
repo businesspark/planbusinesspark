@@ -137,7 +137,7 @@ const PlanM = () => {
               </ul>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center md:justify-start">
                 <a 
-                  href="tel:+918104124183"
+                  href="tel:+919336636577"
                   className="group relative bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-sm sm:text-lg shadow-lg hover:bg-gray-800 transition-all transform hover:scale-110 hover:shadow-2xl overflow-hidden inline-block text-center"
                 >
                   <span className="relative z-10">Call Now</span>
@@ -509,8 +509,8 @@ const PlanM = () => {
                 </div>
                 <div className="space-y-2">
                   {[
-                    "+91 81041 24183",
                     "+91 93366 36577",
+                    "+91 81041 24183",
                     "+91 87792 96362"
                   ].map((phone, index) => (
                     <a 

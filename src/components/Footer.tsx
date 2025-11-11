@@ -32,6 +32,12 @@ const Footer = () => {
             <div className="text-primary-foreground/80 text-sm space-y-2">
               <p>Mumbai & Navi Mumbai</p>
               <p>Maharashtra, India</p>
+              <a 
+                href="tel:+919336636577" 
+                className="block text-primary-foreground hover:text-yellow-300 transition-colors font-medium hover:translate-x-1 transform duration-200"
+              >
+                +91 93366 36577
+              </a>
             </div>
           </div>
         </div>
