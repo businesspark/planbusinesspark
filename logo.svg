@@ -1,0 +1,34 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" rx="12" fill="#EAB308"/>
+  <rect x="16" y="16" width="10" height="32" rx="2" fill="white"/>
+  <rect x="30" y="12" width="10" height="36" rx="2" fill="white"/>
+  <rect x="44" y="20" width="8" height="28" rx="2" fill="white"/>
+  
+  <!-- Windows for first building -->
+  <rect x="18" y="20" width="2" height="2" fill="#EAB308"/>
+  <rect x="22" y="20" width="2" height="2" fill="#EAB308"/>
+  <rect x="18" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="22" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="18" y="28" width="2" height="2" fill="#EAB308"/>
+  <rect x="22" y="28" width="2" height="2" fill="#EAB308"/>
+  <rect x="18" y="32" width="2" height="2" fill="#EAB308"/>
+  <rect x="22" y="32" width="2" height="2" fill="#EAB308"/>
+  
+  <!-- Windows for second building -->
+  <rect x="32" y="16" width="2" height="2" fill="#EAB308"/>
+  <rect x="36" y="16" width="2" height="2" fill="#EAB308"/>
+  <rect x="32" y="20" width="2" height="2" fill="#EAB308"/>
+  <rect x="36" y="20" width="2" height="2" fill="#EAB308"/>
+  <rect x="32" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="36" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="32" y="28" width="2" height="2" fill="#EAB308"/>
+  <rect x="36" y="28" width="2" height="2" fill="#EAB308"/>
+  
+  <!-- Windows for third building -->
+  <rect x="46" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="48" y="24" width="2" height="2" fill="#EAB308"/>
+  <rect x="46" y="28" width="2" height="2" fill="#EAB308"/>
+  <rect x="48" y="28" width="2" height="2" fill="#EAB308"/>
+  <rect x="46" y="32" width="2" height="2" fill="#EAB308"/>
+  <rect x="48" y="32" width="2" height="2" fill="#EAB308"/>
+</svg>
