@@ -1,29 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Plan Business Parks</title>
     <script>
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // Store the path in sessionStorage and redirect to home page
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?')
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          )
-        }
-      }(window.location))
-      
-      // Store the current path for React Router
-      sessionStorage.setItem('redirect', location.pathname + location.search + location.hash);
+      // GitHub Pages SPA redirect
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'">
   </head>
   <body>
-    <p>Redirecting to Plan Business Parks...</p>
+    <p>Redirecting...</p>
   </body>
 </html>
