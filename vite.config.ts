@@ -16,12 +16,17 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Use "/" for custom domain (planbusinesspark.com)
-  // GitHub Pages with custom domain needs root path
-  base: "/",
+  // For GitHub Pages: use repository name
+  // Change to "/" only after custom domain is fully configured
+  base: process.env.GITHUB_PAGES ? "/planbusinesspark/" : "/",
   build: {
     outDir: "dist",
     assetsDir: "assets",
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
 }));
