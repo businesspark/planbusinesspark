@@ -13,6 +13,22 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 const Index = () => {
   const navigate = useNavigate();
 
+  // Google Analytics conversion tracking function
+  const gtag_report_conversion = (url?: string) => {
+    const callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location.href = url;
+      }
+    };
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17706229053/4s5BCMuU1b4bEL26_vpB',
+        'event_callback': callback
+      });
+    }
+    return false;
+  };
+
   // Scroll animation hooks
   const projectSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const planMCard = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
@@ -23,17 +39,33 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <Hero
-        image={homeHero1}
-        mobileImage={homeHeroMobile}
-        title="Building Smarter Business Spaces"
-        subtitle="Explore our landmark developments — Plan M and Plan I Business Parks."
-        showButtons={true}
-        onButtonClick={(type) => {
-          if (type === "primary") navigate("/plan-m");
-          else navigate("/plan-i");
-        }}
-      />
+      <section className="relative w-full overflow-hidden pt-16 bg-white">
+        {/* Background Images */}
+        <div className="relative">
+          {/* Mobile Image */}
+          <img
+            src={homeHeroMobile}
+            alt="Building Smarter Business Spaces"
+            className="block sm:hidden w-full h-auto object-contain min-h-[300px]"
+          />
+          {/* Desktop Image */}
+          <img
+            src={homeHero1}
+            alt="Building Smarter Business Spaces"
+            className="hidden sm:block w-full h-auto object-contain min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
+          />
+          
+          {/* Phone Number Display */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 -translate-x-80">
+            <div className="flex items-center gap-2 text-white">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span className="font-semibold text-lg">+91 81041 24183</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Project Showcase Section */}
       <section 

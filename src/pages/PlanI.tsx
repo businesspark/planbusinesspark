@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -20,6 +21,8 @@ import image3 from "@/assets/images/floor-plan-2.jpeg";
 import image4 from "@/assets/images/floor-plan-2.jpeg";
 import planIHero from "@/assets/images/banner2.png";
 import planIHeroMobile from "@/assets/images/banner5.png";
+import banner10 from "@/assets/images/banner10.png";
+import banner9 from "@/assets/images/banner9.png";
 import planIPodium from "@/assets/images/plan-i-podium.webp";
 // Using apartment images as placeholders for missing amenity images
 import amenityConference from "@/assets/images/apartment-1.jpg";
@@ -44,6 +47,24 @@ import stadiumIcon from "@/assets/images/icons/stadium.svg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const PlanI = () => {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  // Hero slider images
+  const heroSlides = [
+    {
+      desktop: planIHero,
+      mobile: planIHeroMobile,
+      title: "Plan I Business Park",
+      subtitle: "Where design meets technology and sustainability"
+    },
+    {
+      desktop: banner10,
+      mobile: banner9, // Using banner9.png for mobile
+      title: "Plan I Business Park",
+      subtitle: "Premium Business Spaces"
+    }
+  ];
+
   // Scroll animation hooks
   const overviewSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const highlightsSection = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
@@ -53,6 +74,16 @@ const PlanI = () => {
   const videoSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const locationSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const contactSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
+
+  // Auto-sliding functionality
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4000); // 4 seconds
+
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
+
   const amenities = [
     {
       image: amenityConference,
@@ -77,17 +108,51 @@ const PlanI = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       
-  {/* Hero Section */}
-  <Hero
-    image={planIHero}
-    mobileImage={planIHeroMobile}
-    title="Plan I Business Park"
-    subtitle="Where design meets technology and sustainability"
-    showButtons={false}
-  />
+  {/* Hero Slider Section */}
+  <section className="relative w-full overflow-hidden mt-16 sm:mt-20 h-[900px] sm:h-[550px]">
+    {heroSlides.map((slide, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          index === currentSlide ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {/* Desktop Image */}
+        <img
+          src={slide.desktop}
+          alt={`Plan I Business Park - Slide ${index + 1}`}
+          className="hidden md:block w-full h-full object-cover object-center"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        />
+        {/* Mobile Image */}
+        <img
+          src={slide.mobile}
+          alt={`Plan I Business Park - Slide ${index + 1}`}
+          className="md:hidden w-full h-full object-cover object-center"
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+        />
+      </div>
+    ))}
+    
+    {/* Slide Indicators */}
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      {heroSlides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            index === currentSlide 
+              ? 'bg-green-500 scale-125' 
+              : 'bg-white/50 hover:bg-white/75'
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  </section>
 
       {/* About Section */}
       <section className={`py-12 sm:py-16 lg:py-24 bg-white relative overflow-hidden transition-all duration-1000 ${overviewSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>

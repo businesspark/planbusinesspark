@@ -8,6 +8,8 @@ import ImageGallery from "@/components/ImageGallery";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import planMHero from "@/assets/images/banner1.png";
 import planMHeroMobile from "@/assets/images/banner6.png";
+import banner7 from "@/assets/images/banner7.png";
+import banner8 from "@/assets/images/banner8.png";
 import planMAbout from "@/assets/images/plan-m-about.jpg";
 import planMHeroMain from "@/assets/images/plan-m-hero-main.jpg";
 // Using apartment images as placeholders for missing amenity images
@@ -27,6 +29,23 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const PlanM = () => {
   const [openEnquiry, setOpenEnquiry] = React.useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  // Hero slider images
+  const heroSlides = [
+    {
+      desktop: planMHero,
+      mobile: planMHeroMobile,
+      title: "Plan M Business Park",
+      subtitle: "Modern Architecture"
+    },
+    {
+      desktop: banner7,
+      mobile: banner8, // Using banner8.png for mobile version of second slide
+      title: "Plan M Business Park",
+      subtitle: "Premium Business Spaces"
+    }
+  ];
 
   // Scroll animation hooks
   const overviewSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
@@ -35,6 +54,15 @@ const PlanM = () => {
   const walkthroughSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const locationSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
   const contactSection = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
+
+  // Auto-sliding functionality
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4000); // 4 seconds
+
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
 
   const amenities = [
     {
@@ -62,14 +90,46 @@ const PlanM = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Navbar />
-      {/* Hero Section */}
-      <Hero
-        image={planMHero}
-        mobileImage={planMHeroMobile}
-        title="Plan M Business Park"
-        subtitle="Modern Architecture"
-        showButtons={false}
-      />
+      {/* Hero Slider Section */}
+      <section className="relative w-full overflow-hidden mt-16 sm:mt-20 h-[900px] sm:h-[550px]">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Desktop Image */}
+            <img
+              src={slide.desktop}
+              alt={`Plan M Business Park - Slide ${index + 1}`}
+              className="hidden md:block w-full h-full object-cover object-center"
+            />
+            {/* Mobile Image */}
+            <img
+              src={slide.mobile}
+              alt={`Plan M Business Park - Slide ${index + 1}`}
+              className="md:hidden w-full h-full object-cover object-center"
+            />
+          </div>
+        ))}
+        
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-yellow-500 scale-125' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </section>
 
       {/* About Section */}
       <section className="py-8 sm:py-12 lg:py-20 bg-white relative overflow-hidden">
