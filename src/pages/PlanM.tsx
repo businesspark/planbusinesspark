@@ -59,7 +59,7 @@ const PlanM = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4000); // 4 seconds
+    }, 5000); // 5 seconds
 
     return () => clearInterval(interval);
   }, [heroSlides.length]);
