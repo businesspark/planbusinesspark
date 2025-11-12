@@ -187,7 +187,7 @@ const PlanM = () => {
           </h2>
           <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground space-y-2">
             <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">A. Midas Wing (Commercial Units) - 2740sq.ft carpet starts from  @ 5.48cr (negotiable) + taxes.</p>
-            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">B. West Wing (Commercial Office) - 370sq.ft carpet @ 85.12L (negotiable) + Taxes, 575sq.ft carpet @ 1.27cr (negotiable) + Taxes.</p>
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">B. West Wing (Commercial Office) - 370sq.ft carpet @ 85.12L (negotiable) + Taxes, 566sq.ft carpet @ 1.25cr (negotiable) + Taxes.</p> <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">C. East Wing (Commercial Office) - 397sq.ft carpet @ 90.68L (negotiable) + Taxes, 575sq.ft carpet @ 1.27cr (negotiable) + Taxes.</p>
             
           </div>
           <div className="overflow-x-auto mb-8 sm:mb-12">

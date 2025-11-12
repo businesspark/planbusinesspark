@@ -9,6 +9,22 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Google Analytics conversion tracking function
+  const gtag_report_conversion = (url?: string) => {
+    const callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location.href = url;
+      }
+    };
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17706229053/4s5BCMuU1b4bEL26_vpB',
+        'event_callback': callback
+      });
+    }
+    return false;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -60,6 +76,7 @@ const Navbar = () => {
             ))}
             <a
               href="tel:+918104124183"
+              onClick={() => gtag_report_conversion('tel:+918104124183')}
               className="ml-2 px-4 py-2 bg-yellow-600 text-white rounded-lg text-sm font-medium transition-all duration-200 hover:bg-yellow-700 flex items-center space-x-2"
             >
               <Phone size={16} />
@@ -97,7 +114,10 @@ const Navbar = () => {
               ))}
               <a
                 href="tel:+918104124183"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  gtag_report_conversion('tel:+918104124183');
+                }}
                 className="px-4 py-3 bg-yellow-600 text-white rounded-lg text-base font-medium transition-all hover:bg-yellow-700 flex items-center space-x-2"
               >
                 <Phone size={18} />
