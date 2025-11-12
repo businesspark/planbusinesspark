@@ -137,7 +137,7 @@ const PlanM = () => {
               </ul>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8 justify-center md:justify-start">
                 <a 
-                  href="tel:+919336636577"
+                  href="tel:+918104124183"
                   className="group relative bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold text-sm sm:text-lg shadow-lg hover:bg-gray-800 transition-all transform hover:scale-110 hover:shadow-2xl overflow-hidden inline-block text-center"
                 >
                   <span className="relative z-10">Call Now</span>
@@ -186,9 +186,9 @@ const PlanM = () => {
             PRICE & UNIT DETAILS - PLAN M BUSINESS PARK
           </h2>
           <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground space-y-2">
-            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">A. Midas Wing (Commercial Units) - 2333sq.ft carpet @ 4.18cr (negotiable) + taxes , 3000sq.ft carpet @ Price On Request & 6000sq.ft carpet @ Price On Request.</p>
-            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">B. West Wing (IT/ITES office spaces) - 370sq.ft carpet @ 67.77L (negotiable) + Taxes, 568sq.ft carpet @ 98.56L (negotiable) + Taxes.</p>
-            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">C. East Wing (IT/ITES office spaces) - 397sq.ft carpet @ 70L (negotiable) + taxes & 575sq.ft carpet @ 97.83L (negotiable) + Taxes.</p>
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">A. Midas Wing (Commercial Units) - 2740sq.ft carpet starts from  @ 5.48cr (negotiable) + taxes.</p>
+            <p className="p-3 sm:p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-600 transform hover:scale-105 transition-transform text-balance">B. West Wing (Commercial Office) - 370sq.ft carpet @ 85.12L (negotiable) + Taxes, 575sq.ft carpet @ 1.27cr (negotiable) + Taxes.</p>
+            
           </div>
           <div className="overflow-x-auto mb-8 sm:mb-12">
             <table className="w-full table-fixed border border-gray-300 text-center mb-6 sm:mb-10 shadow-lg rounded-lg overflow-hidden">
@@ -200,7 +200,7 @@ const PlanM = () => {
               </thead>
               <tbody className="bg-white">
                 {[
-                  { carpet: "371", price: "67.77L* + taxes", isPrice: true },
+                  { carpet: "370", price: "95.79L* + taxes", isPrice: true },
                   { carpet: "389", price: "PRICE ON REQUEST", isPrice: false },
                   { carpet: "408", price: "PRICE ON REQUEST", isPrice: false },
                   { carpet: "422", price: "PRICE ON REQUEST", isPrice: false },
@@ -509,8 +509,8 @@ const PlanM = () => {
                 </div>
                 <div className="space-y-2">
                   {[
-                    "+91 93366 36577",
                     "+91 81041 24183",
+                    "+91 93366 36577",
                     "+91 87792 96362"
                   ].map((phone, index) => (
                     <a 

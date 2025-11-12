@@ -4,6 +4,13 @@ import Hero from "@/components/Hero";
 import AmenityCard from "@/components/AmenityCard";
 import ContactForm from "@/components/ContactForm";
 import ImageGallery from "@/components/ImageGallery";
+// Floor plan images for gallery
+import floor from "@/assets/images/floor.png";
+import floor1 from "@/assets/images/floor1.png";
+import floor2 from "@/assets/images/floor2.png";
+import floor3 from "@/assets/images/floor3.png";
+import floor4 from "@/assets/images/floor4.png";
+import floor5 from "@/assets/images/floor5.png";
 // Gallery images - using floor plans as placeholders
 import galleryImage from "@/assets/images/floor-plan-1.jpeg";
 import image0 from "@/assets/images/floor-plan-1.jpeg";
@@ -165,154 +172,69 @@ const PlanI = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-  <section ref={pricingSection.elementRef} className={`py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-green-50 to-green-100 transition-all duration-1000 ${pricingSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}` }>
+      {/* Floor Plan Gallery Section */}
+      <ImageGallery
+        images={[floor, floor1, floor2, floor3, floor4, floor5]}
+        colorScheme="green"
+      />
+
+      {/* Price & Unit Details Section */}
+      <section 
+        ref={pricingSection.elementRef}
+        className={`py-8 sm:py-12 lg:py-20 bg-gradient-to-b from-white to-gray-50 transition-all duration-1000 ${
+          pricingSection.isVisible 
+            ? "opacity-100 translate-y-0" 
+            : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-            <div className="flex justify-center mb-4 sm:mb-6">
-              <span className="inline-block px-4 sm:px-6 py-2 border-2 border-green-700 rounded-lg font-bold text-green-700 bg-white text-sm sm:text-lg tracking-wide shadow-sm">
-                COST SHEET
-              </span>
-            </div>
-            <div className="flex items-center justify-center mb-6 sm:mb-8">
-              <span className="h-1 w-16 sm:w-32 bg-green-400" />
-              <span className="mx-2 text-green-700 text-xl sm:text-2xl">•</span>
-              <span className="h-1 w-16 sm:w-32 bg-green-400" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-3 sm:mb-4 text-balance">
-              Investment Options
-            </h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4 text-balance">
-              Flexible pricing plans designed to meet your business requirements with transparent cost structure.
-            </p>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-green-700 mb-4 sm:mb-6 text-center uppercase tracking-wide transform hover:scale-105 transition-transform duration-300 text-balance">
+            PRICE & UNIT DETAILS - PLAN I BUSINESS PARK
+          </h2>
+          <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground space-y-2">
+            <p className="p-3 sm:p-4 bg-green-50 rounded-lg border-l-4 border-green-600 transform hover:scale-105 transition-transform text-balance">A.(IT/ITES office spaces) -  starts from 387sq.ft carpet (negotiable) + taxes goes up to 709sq.ft carpet  (negotiable) + Taxes starts from the  @ 80.70L.</p>
+            <p className="p-3 sm:p-4 bg-green-50 rounded-lg border-l-4 border-green-600 transform hover:scale-105 transition-transform text-balance">B.(Commercial units) - 478sq.ft carpet  (negotiable) + Taxes, 1525sq.ft carpet (negotiable) + Taxes start from  @ 1.33cr.</p>
           </div>
+          <div className="overflow-x-auto mb-8 sm:mb-12">
+            <table className="w-full table-fixed border border-gray-300 text-center mb-6 sm:mb-10 shadow-lg rounded-lg overflow-hidden">
+              <thead className="bg-gradient-to-r from-green-600 to-green-700 text-white">
+                <tr>
+                  <th className="w-1/2 px-4 sm:px-6 py-3 sm:py-4 border font-bold text-sm sm:text-base">Carpet Area (Sq.Ft)</th>
+                  <th className="w-1/2 px-4 sm:px-6 py-3 sm:py-4 border font-bold text-sm sm:text-base">Price</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                {[
+                  { carpet: "387", price: "80L* + taxes", isPrice: true },
 
-          <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="bg-green-700 text-white p-4 sm:p-6 rounded-t-2xl">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-center text-balance">PLAN I - COST BREAKDOWN</h3>
-            </div>
-            
-            {/* Pricing Table */}
-            <div className="bg-white shadow-2xl rounded-b-2xl overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[600px]">
-                  <thead>
-                    <tr className="bg-green-100 border-b-2 border-green-200">
-                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-left font-bold text-green-800 text-xs sm:text-sm">Particulars</th>
-                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">774 Sq.Ft</th>
-                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">794 Sq.Ft</th>
-                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1128 Sq.Ft</th>
-                      <th className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1418 Sq.Ft</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-semibold text-gray-700 text-xs sm:text-sm">Maintenance Area (Sq.ft)</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">774</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">794</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">1128</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">1418</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-semibold text-gray-700 text-xs sm:text-sm">Usable Carpet Area (Sq.ft)</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">387</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">397</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">564</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center text-gray-800 text-xs sm:text-sm">709</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors bg-green-25">
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 font-bold text-green-800 text-xs sm:text-sm">Sale Value</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">69,00,000</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">71,46,000</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1,01,52,000</td>
-                      <td className="px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center font-bold text-green-800 text-xs sm:text-sm">1,27,62,000</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Car Parking (1)</td>
-                      <td className="px-6 py-4 text-center text-gray-800">7,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">7,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">7,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">7,00,000</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Club Membership</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,00,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,00,000</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Development Charges</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,70,900</td>
-                      <td className="px-6 py-4 text-center text-gray-800">2,77,900</td>
-                      <td className="px-6 py-4 text-center text-gray-800">3,94,800</td>
-                      <td className="px-6 py-4 text-center text-gray-800">4,96,300</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors bg-yellow-50">
-                      <td className="px-6 py-4 font-bold text-yellow-800">Total Value</td>
-                      <td className="px-6 py-4 text-center font-bold text-yellow-800">80,70,900</td>
-                      <td className="px-6 py-4 text-center font-bold text-yellow-800">83,23,900</td>
-                      <td className="px-6 py-4 text-center font-bold text-yellow-800">1,14,46,800</td>
-                      <td className="px-6 py-4 text-center font-bold text-yellow-800">1,41,58,300</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Stamp Duty @ 6%</td>
-                      <td className="px-6 py-4 text-center text-gray-800">4,84,254</td>
-                      <td className="px-6 py-4 text-center text-gray-800">4,99,434</td>
-                      <td className="px-6 py-4 text-center text-gray-800">6,86,808</td>
-                      <td className="px-6 py-4 text-center text-gray-800">8,49,498</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">GST @ 6%</td>
-                      <td className="px-6 py-4 text-center text-gray-800">4,84,254</td>
-                      <td className="px-6 py-4 text-center text-gray-800">4,99,434</td>
-                      <td className="px-6 py-4 text-center text-gray-800">6,86,808</td>
-                      <td className="px-6 py-4 text-center text-gray-800">8,49,498</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Registration</td>
-                      <td className="px-6 py-4 text-center text-gray-800">30,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">30,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">30,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">30,000</td>
-                    </tr>
-                    <tr className="hover:bg-green-50 transition-colors">
-                      <td className="px-6 py-4 font-semibold text-gray-700">Legal Charges</td>
-                      <td className="px-6 py-4 text-center text-gray-800">15,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">15,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">15,000</td>
-                      <td className="px-6 py-4 text-center text-gray-800">15,000</td>
-                    </tr>
-                    <tr className="bg-green-600 text-white">
-                      <td className="px-6 py-4 font-bold text-lg">Total Amount</td>
-                      <td className="px-6 py-4 text-center font-bold text-lg">90,84,408</td>
-                      <td className="px-6 py-4 text-center font-bold text-lg">93,67,768</td>
-                      <td className="px-6 py-4 text-center font-bold text-lg">1,28,65,416</td>
-                      <td className="px-6 py-4 text-center font-bold text-lg">1,59,02,296</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Terms & Conditions */}
-            <div className="bg-gray-50 p-4 sm:p-6 lg:p-8 rounded-2xl mt-6 sm:mt-8 border-l-4 border-green-600">
-              <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">TERMS & CONDITIONS:</h4>
-              <div className="grid md:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm text-gray-700 space-y-1 sm:space-y-2">
-                <div className="space-y-2 sm:space-y-3">
-                  <p><span className="font-semibold">1.</span> Total value includes Basic Rate, Development Charges, Car Parking and Club Membership.</p>
-                  <p><span className="font-semibold">2.</span> Stamp Duty 6% & Registration charges as applicable. Subject to Change.</p>
-                  <p><span className="font-semibold">3.</span> GST to be paid separately as applicable.</p>
-                  <p><span className="font-semibold">4.</span> Society Maintenance Charges for 2 years at the time of possession on Maintenance area.</p>
-                </div>
-                <div className="space-y-2 sm:space-y-3">
-                  <p><span className="font-semibold">5.</span> Society Formation Charges, Transfer Charges payable as actual at the time of possession.</p>
-                  <p><span className="font-semibold">6.</span> Society Formation Charges Rs. 1,00,000/- and MIDC Transfer Charges Rs. 1,50,000/-payable at the time of Possession.</p>
-                  <p><span className="font-semibold">7.</span> Above rates are subject to change without prior intimation at the discretion of the Developer.</p>
-                </div>
-              </div>
-            </div>
+                  { carpet: "709", price: "PRICE ON REQUEST", isPrice: false },
+                  { carpet: "794", price: "PRICE ON REQUEST", isPrice: false },
+                  { carpet: "1128", price: "PRICE ON REQUEST", isPrice: false },
+                  { carpet: "1418", price: "PRICE ON REQUEST", isPrice: false },
+                ].map((row, index) => (
+                  <tr 
+                    key={index}
+                    className={`hover:bg-green-50 transition-all duration-500 border-b ${
+                      pricingSection.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                    }`}
+                    style={{ 
+                      transitionDelay: pricingSection.isVisible ? `${index * 0.05}s` : "0s"
+                    }}
+                  >
+                    <td className="border px-4 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-lg">{row.carpet}</td>
+                    <td className="border px-4 sm:px-6 py-3 sm:py-4">
+                      {row.isPrice ? (
+                        <span className="font-bold text-green-700 text-base sm:text-xl">{row.price}</span>
+                      ) : (
+                        <button className="bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:bg-green-800 transform hover:scale-105 transition-all shadow-md text-sm sm:text-base w-full max-w-xs">
+                          {row.price}
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -478,8 +400,8 @@ const PlanI = () => {
                 </div>
                 <div className="space-y-2">
                   {[
-                    "+91 93366 36577",
                     "+91 81041 24183",
+                    "+91 93366 36577",
                     "+91 87792 96362"
                   ].map((phone, index) => (
                     <a 

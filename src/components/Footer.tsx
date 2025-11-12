@@ -33,10 +33,10 @@ const Footer = () => {
               <p>Mumbai & Navi Mumbai</p>
               <p>Maharashtra, India</p>
               <a 
-                href="tel:+919336636577" 
+                href="tel:+918104124183" 
                 className="block text-primary-foreground hover:text-yellow-300 transition-colors font-medium hover:translate-x-1 transform duration-200"
               >
-                +91 93366 36577
+                +91 81041 24183
               </a>
             </div>
           </div>

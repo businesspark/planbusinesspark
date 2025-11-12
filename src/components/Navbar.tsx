@@ -59,11 +59,11 @@ const Navbar = () => {
               </Link>
             ))}
             <a
-              href="tel:+919336636577"
+              href="tel:+918104124183"
               className="ml-2 px-4 py-2 bg-yellow-600 text-white rounded-lg text-sm font-medium transition-all duration-200 hover:bg-yellow-700 flex items-center space-x-2"
             >
               <Phone size={16} />
-              <span className="hidden lg:inline">+91 93366 36577</span>
+              <span className="hidden lg:inline">+91 81041 24183</span>
             </a>
           </div>
 
@@ -96,12 +96,12 @@ const Navbar = () => {
                 </Link>
               ))}
               <a
-                href="tel:+919336636577"
+                href="tel:+918104124183"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-4 py-3 bg-yellow-600 text-white rounded-lg text-base font-medium transition-all hover:bg-yellow-700 flex items-center space-x-2"
               >
                 <Phone size={18} />
-                <span>+91 93366 36577</span>
+                <span>+91 81041 24183</span>
               </a>
             </div>
           </div>
