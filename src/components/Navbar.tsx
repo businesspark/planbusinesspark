@@ -80,7 +80,7 @@ const Navbar = () => {
               className="ml-2 px-4 py-2 bg-yellow-600 text-white rounded-lg text-sm font-medium transition-all duration-200 hover:bg-yellow-700 flex items-center space-x-2"
             >
               <Phone size={16} />
-              <span className="hidden lg:inline">+91 81041 24183</span>
+              <span className="hidden lg:inline">918104124183</span>
             </a>
           </div>
 
